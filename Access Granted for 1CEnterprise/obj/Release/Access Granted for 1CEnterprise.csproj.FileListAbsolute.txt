@@ -1,0 +1,27 @@
+C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\bin\Release\Access Granted for 1CEnterprise.exe.config
+C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\bin\Release\Access Granted for 1CEnterprise.exe
+C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\bin\Release\Access Granted for 1CEnterprise.pdb
+C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\bin\Release\Devart.Data.dll
+C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\bin\Release\Devart.Data.Oracle.dll
+C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\bin\Release\Mono.Security.dll
+C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\bin\Release\Npgsql.dll
+C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\obj\Release\Access Granted for 1CEnterprise.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\obj\Release\Access_Granted_for_1CEnterprise.About.resources
+C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\obj\Release\Access_Granted_for_1CEnterprise.Form1.resources
+C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\obj\Release\Access_Granted_for_1CEnterprise.Properties.Resources.resources
+C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\obj\Release\Access Granted for 1CEnterprise.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\obj\Release\Access Granted for 1CEnterprise.exe
+C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\obj\Release\Access Granted for 1CEnterprise.pdb
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Access Granted for 1CEnterprise.exe.config
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\Access Granted for 1CEnterprise.exe
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\Access Granted for 1CEnterprise.pdb
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Access Granted for 1CEnterprise.exe
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Access Granted for 1CEnterprise.pdb
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Devart.Data.dll
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Devart.Data.Oracle.dll
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Mono.Security.dll
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Npgsql.dll
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\Access_Granted_for_1CEnterprise.About.resources
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\Access_Granted_for_1CEnterprise.Form1.resources
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\Access_Granted_for_1CEnterprise.Properties.Resources.resources
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\Access Granted for 1CEnterprise.csproj.GenerateResource.Cache
