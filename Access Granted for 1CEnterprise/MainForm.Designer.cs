@@ -1,6 +1,6 @@
-﻿namespace Access_Granted_for_1CEnterprise
+﻿namespace DevelPlatform.OneCEUtils.AccessGranted
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panelFileBase = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxDataBasePath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.toolStripMainPanel = new System.Windows.Forms.ToolStrip();
@@ -64,9 +64,9 @@
             this.panelConnStr.SuspendLayout();
             this.SuspendLayout();
             // 
-            // openFileDialog1
+            // openFileDialog
             // 
-            this.openFileDialog1.Filter = "Файловая информационная база (*.1CD)|*.1CD";
+            this.openFileDialog.Filter = "Файловая информационная база (*.1CD)|*.1CD";
             // 
             // button2
             // 
@@ -90,7 +90,7 @@
             // 
             // panelFileBase
             // 
-            this.panelFileBase.Controls.Add(this.textBox1);
+            this.panelFileBase.Controls.Add(this.textBoxDataBasePath);
             this.panelFileBase.Controls.Add(this.label1);
             this.panelFileBase.Controls.Add(this.button1);
             this.panelFileBase.Location = new System.Drawing.Point(13, 28);
@@ -100,11 +100,11 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(327, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBoxDataBasePath.Location = new System.Drawing.Point(6, 26);
+            this.textBoxDataBasePath.Name = "textBox1";
+            this.textBoxDataBasePath.ReadOnly = true;
+            this.textBoxDataBasePath.Size = new System.Drawing.Size(327, 20);
+            this.textBoxDataBasePath.TabIndex = 5;
             // 
             // label1
             // 
@@ -123,7 +123,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "....";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.buttonChooseDatabaseFile_Click);
             // 
             // toolStripMainPanel
             // 
@@ -173,7 +173,7 @@
             this.toolStripButtonHelp.Name = "toolStripButtonHelp";
             this.toolStripButtonHelp.Size = new System.Drawing.Size(87, 22);
             this.toolStripButtonHelp.Text = "О программе";
-            this.toolStripButtonHelp.Click += new System.EventHandler(this.Form1_HelpButtonClicked);
+            this.toolStripButtonHelp.Click += new System.EventHandler(this.MainForm_HelpButtonClicked);
             // 
             // panelServerBase
             // 
@@ -341,7 +341,7 @@
             this.textBoxConnStr.Size = new System.Drawing.Size(366, 87);
             this.textBoxConnStr.TabIndex = 2;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -356,11 +356,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.ShowIcon = false;
-            this.Text = "Сброс учетных записей [1С:Предприятие 8.2] ";
-            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.Form1_HelpButtonClicked);
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Сброс учетных записей [1С:Предприятие 8.x] ";
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.MainForm_HelpButtonClicked);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelFileBase.ResumeLayout(false);
             this.panelFileBase.PerformLayout();
             this.toolStripMainPanel.ResumeLayout(false);
@@ -378,11 +378,11 @@
 
         #endregion
 
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panelFileBase;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxDataBasePath;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStrip toolStripMainPanel;

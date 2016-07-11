@@ -1,4 +1,4 @@
-﻿namespace Access_Granted_for_1CEnterprise
+﻿namespace DevelPlatform.OneCEUtils.AccessGranted
 {
     partial class About
     {
@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelEmail1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelName1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.linkLabelBlog = new System.Windows.Forms.LinkLabel();
+            this.richTextBoxInfo = new System.Windows.Forms.RichTextBox();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelName2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelEmail2 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
-            // linkLabel1
+            // linkLabelEmail1
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(130, 26);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(105, 13);
-            this.linkLabel1.TabIndex = 0;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "ypermitin@yandex.ru";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabelEmail1.AutoSize = true;
+            this.linkLabelEmail1.Location = new System.Drawing.Point(130, 26);
+            this.linkLabelEmail1.Name = "linkLabelEmail1";
+            this.linkLabelEmail1.Size = new System.Drawing.Size(105, 13);
+            this.linkLabelEmail1.TabIndex = 0;
+            this.linkLabelEmail1.TabStop = true;
+            this.linkLabelEmail1.Text = "ypermitin@yandex.ru";
+            this.linkLabelEmail1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label1
             // 
@@ -63,14 +63,14 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Автор:";
             // 
-            // label2
+            // labelName1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(152, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Пермитин Ю.А.";
+            this.labelName1.AutoSize = true;
+            this.labelName1.Location = new System.Drawing.Point(152, 13);
+            this.labelName1.Name = "labelName1";
+            this.labelName1.Size = new System.Drawing.Size(83, 13);
+            this.labelName1.TabIndex = 2;
+            this.labelName1.Text = "Пермитин Ю.А.";
             // 
             // label3
             // 
@@ -90,28 +90,26 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Блог:";
             // 
-            // linkLabel2
+            // linkLabelBlog
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(135, 44);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(93, 13);
-            this.linkLabel2.TabIndex = 5;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "develplatform.com";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.linkLabelBlog.AutoSize = true;
+            this.linkLabelBlog.Location = new System.Drawing.Point(151, 44);
+            this.linkLabelBlog.Name = "linkLabelBlog";
+            this.linkLabelBlog.Size = new System.Drawing.Size(82, 13);
+            this.linkLabelBlog.TabIndex = 5;
+            this.linkLabelBlog.TabStop = true;
+            this.linkLabelBlog.Text = "develplatform.ru";
+            this.linkLabelBlog.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
-            // richTextBox1
+            // richTextBoxInfo
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(15, 182);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(220, 102);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "Программа для сброса учетных записей в информационной базе 1С:Предприятия 8.2, 8." +
-    "3.  \n\nАвтор не несет ответственности за использование приложения в корыстных цел" +
-    "ях.";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.richTextBoxInfo.Location = new System.Drawing.Point(15, 182);
+            this.richTextBoxInfo.Name = "richTextBoxInfo";
+            this.richTextBoxInfo.ReadOnly = true;
+            this.richTextBoxInfo.Size = new System.Drawing.Size(220, 102);
+            this.richTextBoxInfo.TabIndex = 7;
+            this.richTextBoxInfo.Text = "Программа для сброса учетных записей в информационной базе 1С:Предприятия 8.x.  \n" +
+    "\nАвтор не несет ответственности за использование приложения в корыстных целях.";
             // 
             // linkLabel3
             // 
@@ -143,16 +141,15 @@
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 10;
             this.label5.Text = "Соавтор:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // label6
+            // labelName2
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(155, 72);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Плеханов П.С.";
+            this.labelName2.AutoSize = true;
+            this.labelName2.Location = new System.Drawing.Point(155, 72);
+            this.labelName2.Name = "labelName2";
+            this.labelName2.Size = new System.Drawing.Size(80, 13);
+            this.labelName2.TabIndex = 11;
+            this.labelName2.Text = "Плеханов П.С.";
             // 
             // label7
             // 
@@ -163,34 +160,34 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "E-mail:";
             // 
-            // linkLabel5
+            // linkLabelEmail2
             // 
-            this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Location = new System.Drawing.Point(130, 85);
-            this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(103, 13);
-            this.linkLabel5.TabIndex = 13;
-            this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "psplehanov@mail.ru";
+            this.linkLabelEmail2.AutoSize = true;
+            this.linkLabelEmail2.Location = new System.Drawing.Point(130, 85);
+            this.linkLabelEmail2.Name = "linkLabelEmail2";
+            this.linkLabelEmail2.Size = new System.Drawing.Size(103, 13);
+            this.linkLabelEmail2.TabIndex = 13;
+            this.linkLabelEmail2.TabStop = true;
+            this.linkLabelEmail2.Text = "psplehanov@mail.ru";
             // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(247, 296);
-            this.Controls.Add(this.linkLabel5);
+            this.Controls.Add(this.linkLabelEmail2);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.labelName2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.linkLabel3);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.richTextBoxInfo);
+            this.Controls.Add(this.linkLabelBlog);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelName1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.linkLabelEmail1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -205,18 +202,18 @@
 
         #endregion
 
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabelEmail1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelName1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.LinkLabel linkLabelBlog;
+        private System.Windows.Forms.RichTextBox richTextBoxInfo;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelName2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.LinkLabel linkLabel5;
+        private System.Windows.Forms.LinkLabel linkLabelEmail2;
     }
 }

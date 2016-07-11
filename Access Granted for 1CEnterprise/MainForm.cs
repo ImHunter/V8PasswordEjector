@@ -17,19 +17,18 @@ using System.Data.OleDb;        // IBM DB2
 using Devart.Data.Oracle;       // Oracle Database
 
 
-namespace Access_Granted_for_1CEnterprise
+namespace DevelPlatform.OneCEUtils.AccessGranted
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         // Флаг "Это файловая база"
        public bool ThisFileBase = true;
        int buflen = 8388608;
-       // int buflen = 4;
-  
-        /////////////////////////////////////////////////////
-        // Обработчики элементов формы и формы
+        // int buflen = 4;
 
-        public Form1()
+        #region FormAndElements
+
+        public MainForm()
         {
             InitializeComponent();
 
@@ -37,17 +36,51 @@ namespace Access_Granted_for_1CEnterprise
 
         }
 
-        private void Form1_HelpButtonClicked(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            comboBoxTypeDBMS.SelectedIndex = 0;
+            SetVisibleDataBaseServerSetting();
+        }
+
+        private void MainForm_HelpButtonClicked(object sender, EventArgs e)
         {
             About frmAbout = new About();
             frmAbout.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonChooseDatabaseFile_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
-            textBox1.Text = openFileDialog1.FileName;
+            openFileDialog.ShowDialog();
+            textBoxDataBasePath.Text = openFileDialog.FileName;
         }
+
+        private void toolStripFileBase_Click(object sender, EventArgs e)
+        {
+            SetVisiblePanel(true);
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            SetVisiblePanel(false);
+        }
+
+        private void radioButtonSimle_Click(object sender, EventArgs e)
+        {
+            radioButtonFull.Checked = false;
+            SetVisibleDataBaseServerSetting();
+        }
+
+        private void radioButtonFull_Click(object sender, EventArgs e)
+        {
+            radioButtonSimle.Checked = false;
+            SetVisibleDataBaseServerSetting();
+            if (textBoxConnStr.Text == "")
+            {
+                textBoxConnStr.Text = GetConnectionString();
+            }
+        }
+
+        #endregion
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -83,65 +116,29 @@ namespace Access_Granted_for_1CEnterprise
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            comboBoxTypeDBMS.SelectedIndex = 0;
-            SetVisibleDataBaseServerSetting();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripFileBase_Click(object sender, EventArgs e)
-        {
-            SetVisiblePanel(true);
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            SetVisiblePanel(false);
-        }
-
-        private void radioButtonSimle_Click(object sender, EventArgs e)
-        {
-            radioButtonFull.Checked = false;
-            SetVisibleDataBaseServerSetting();
-        }
-
-        private void radioButtonFull_Click(object sender, EventArgs e)
-        {
-            radioButtonSimle.Checked = false;
-            SetVisibleDataBaseServerSetting();
-            if (textBoxConnStr.Text == "")
-            {
-                textBoxConnStr.Text = GetConnectionString();                   
-            }
-        }
-
-        /////////////////////////////////////////////////////
-        // Управление интерфейсом
+        #region UserInterfaceControl
 
         // Устанавливаем видимость панелей файловой/серверной базы. TRUE - файловая база.
+        //
         private void SetVisiblePanel(bool visThisFileBase)
         {
-            ThisFileBase                  = visThisFileBase;
-            panelFileBase.Visible         = ThisFileBase;
-            panelServerBase.Visible       = !(ThisFileBase);
+            ThisFileBase = visThisFileBase;
+            panelFileBase.Visible = ThisFileBase;
+            panelServerBase.Visible = !(ThisFileBase);
             if (ThisFileBase)
             {
                 toolStripFileBase.BackColor = Color.FromName("ScrollBar");
-                toolStripServerBase.BackColor = Color.FromName("Control"); 
+                toolStripServerBase.BackColor = Color.FromName("Control");
             }
             else
             {
                 toolStripServerBase.BackColor = Color.FromName("ScrollBar");
-                toolStripFileBase.BackColor = Color.FromName("Control"); 
+                toolStripFileBase.BackColor = Color.FromName("Control");
             }
         }
 
         // Устанавливаем видимость панелей настроек подключения к СУБД
+        //
         private void SetVisibleDataBaseServerSetting()
         {
             panelDataBaseServerSimple.Visible = radioButtonSimle.Checked;
@@ -149,15 +146,16 @@ namespace Access_Granted_for_1CEnterprise
         }
 
         // Проверка заполнения необходимых параметров
+        //
         private bool CheckFillSettings()
         {
             bool Result = true;
             if (ThisFileBase)
             {
-                if (textBox1.Text == "")
+                if (textBoxDataBasePath.Text == "")
                 {
                     MessageBox.Show("Не выбран файл базы данных!");
-                    Result = false; 
+                    Result = false;
                 }
             }
             else
@@ -167,7 +165,7 @@ namespace Access_Granted_for_1CEnterprise
                     if (textBoxConnStr.Text == "")
                     {
                         MessageBox.Show("Не заполнена строка подключения к СУБД!");
-                        Result = false; 
+                        Result = false;
                     }
                 }
                 else
@@ -176,12 +174,14 @@ namespace Access_Granted_for_1CEnterprise
                         || textBoxDataBaseUser.Text == "" || textBoxDataBaseUserPassword.Text == "")
                     {
                         MessageBox.Show("Необходимо заполнить все параметры подключения к СУБД!");
-                        Result = false; 
+                        Result = false;
                     }
                 }
             }
             return Result;
         }
+
+        #endregion
 
         /////////////////////////////////////////////////////
         // Сброс и восстановление учетных записей в файловой базе данных
@@ -196,14 +196,14 @@ namespace Access_Granted_for_1CEnterprise
             try 
             {
 
-                GetAdresses(out resTable, out resParam, textBox1.Text, "V8USERS");
+                GetAdresses(out resTable, out resParam, textBoxDataBasePath.Text, "V8USERS");
 
                 bool tableExist = !(resTable < 0);
                 bool paramExist = !(resParam < 0);
                 if (tableExist && paramExist)
                 {
                     // Используя класс "FileStream" открываем файл для записи
-                    using (var stream = new FileStream(textBox1.Text, FileMode.Open, FileAccess.ReadWrite))
+                    using (var stream = new FileStream(textBoxDataBasePath.Text, FileMode.Open, FileAccess.ReadWrite))
                     {
                         // Записываем новые значения байт в найденные позиции в файле
                         stream.Position = resTable;
@@ -228,7 +228,7 @@ namespace Access_Granted_for_1CEnterprise
             long resParam = -1;
             try 
             {
-              GetAdresses(out resTable, out resParam, textBox1.Text, "H8USERS");
+              GetAdresses(out resTable, out resParam, textBoxDataBasePath.Text, "H8USERS");
              // Значения байт, на которые будут изменены значения в файле
             // Вызов метода модификации файла
             bool tableExist = !(resTable < 0);
@@ -236,7 +236,7 @@ namespace Access_Granted_for_1CEnterprise
             if (tableExist && paramExist)
             {
                 // Используя класс "FileStream" открываем файл для записи
-                using (var stream = new FileStream(textBox1.Text, FileMode.Open, FileAccess.ReadWrite))
+                using (var stream = new FileStream(textBoxDataBasePath.Text, FileMode.Open, FileAccess.ReadWrite))
                 {
                     // Записываем новые значения байт в найденные позиции в файле
                     stream.Position = resTable;
@@ -1201,7 +1201,6 @@ namespace Access_Granted_for_1CEnterprise
                     }
                 }
             }
-          //  catch (Exception e) { MessageBox.Show("Ошибка: " + e.Message); }
         }
 
     }

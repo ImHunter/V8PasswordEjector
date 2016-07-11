@@ -21,7 +21,7 @@ F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterpris
 F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Devart.Data.Oracle.dll
 F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Mono.Security.dll
 F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Npgsql.dll
-F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\Access_Granted_for_1CEnterprise.About.resources
-F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\Access_Granted_for_1CEnterprise.Form1.resources
-F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\Access_Granted_for_1CEnterprise.Properties.Resources.resources
 F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\Access Granted for 1CEnterprise.csproj.GenerateResource.Cache
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\DevelPlatform.OneCEUtils.AccessGranted.MainForm.resources
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\DevelPlatform.OneCEUtils.AccessGranted.About.resources
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\DevelPlatform.OneCEUtils.AccessGranted.Properties.Resources.resources

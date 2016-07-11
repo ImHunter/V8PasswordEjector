@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Access_Granted_for_1CEnterprise
+namespace DevelPlatform.OneCEUtils.AccessGranted
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace Access_Granted_for_1CEnterprise
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }
