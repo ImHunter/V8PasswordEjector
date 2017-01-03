@@ -41,6 +41,8 @@
             this.labelName2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.linkLabelEmail2 = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // linkLabelEmail1
@@ -170,11 +172,31 @@
             this.linkLabelEmail2.TabStop = true;
             this.linkLabelEmail2.Text = "psplehanov@mail.ru";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(193, 116);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "2.0.0.0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 116);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Версия:";
+            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(247, 296);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.linkLabelEmail2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.labelName2);
@@ -215,5 +237,7 @@
         private System.Windows.Forms.Label labelName2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.LinkLabel linkLabelEmail2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label6;
     }
 }

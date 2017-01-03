@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DevelPlatform.OneCEUtils.AccessGranted.Properties {
+namespace DevelPlatform.OneCEUtils.V8PasswordEjector.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DevelPlatform.OneCEUtils.AccessGranted.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DevelPlatform.OneCEUtils.AccessGranted.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DevelPlatform.OneCEUtils.V8PasswordEjector.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

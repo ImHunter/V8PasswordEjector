@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DevelPlatform.OneCEUtils.AccessGranted.Properties {
+namespace DevelPlatform.OneCEUtils.V8PasswordEjector.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

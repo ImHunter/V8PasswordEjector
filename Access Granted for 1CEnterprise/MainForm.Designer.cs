@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnResetUsers = new System.Windows.Forms.Button();
+            this.btnRecoveryPassword = new System.Windows.Forms.Button();
             this.panelFileBase = new System.Windows.Forms.Panel();
             this.textBoxDataBasePath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -68,25 +68,25 @@
             // 
             this.openFileDialog.Filter = "Файловая информационная база (*.1CD)|*.1CD";
             // 
-            // button2
+            // btnResetUsers
             // 
-            this.button2.Location = new System.Drawing.Point(216, 191);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(166, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Сбросить пользователей";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnResetUsers.Location = new System.Drawing.Point(216, 191);
+            this.btnResetUsers.Name = "btnResetUsers";
+            this.btnResetUsers.Size = new System.Drawing.Size(166, 23);
+            this.btnResetUsers.TabIndex = 3;
+            this.btnResetUsers.Text = "Сбросить пользователей";
+            this.btnResetUsers.UseVisualStyleBackColor = true;
+            this.btnResetUsers.Click += new System.EventHandler(this.btnResetUsers_Click);
             // 
-            // button3
+            // btnRecoveryPassword
             // 
-            this.button3.Location = new System.Drawing.Point(12, 191);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(170, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Восстановить пользователей";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnRecoveryPassword.Location = new System.Drawing.Point(12, 191);
+            this.btnRecoveryPassword.Name = "btnRecoveryPassword";
+            this.btnRecoveryPassword.Size = new System.Drawing.Size(170, 23);
+            this.btnRecoveryPassword.TabIndex = 4;
+            this.btnRecoveryPassword.Text = "Восстановить пользователей";
+            this.btnRecoveryPassword.UseVisualStyleBackColor = true;
+            this.btnRecoveryPassword.Click += new System.EventHandler(this.btnRecoveryPassword_Click);
             // 
             // panelFileBase
             // 
@@ -98,10 +98,10 @@
             this.panelFileBase.Size = new System.Drawing.Size(369, 157);
             this.panelFileBase.TabIndex = 7;
             // 
-            // textBox1
+            // textBoxDataBasePath
             // 
             this.textBoxDataBasePath.Location = new System.Drawing.Point(6, 26);
-            this.textBoxDataBasePath.Name = "textBox1";
+            this.textBoxDataBasePath.Name = "textBoxDataBasePath";
             this.textBoxDataBasePath.ReadOnly = true;
             this.textBoxDataBasePath.Size = new System.Drawing.Size(327, 20);
             this.textBoxDataBasePath.TabIndex = 5;
@@ -350,15 +350,15 @@
             this.Controls.Add(this.panelServerBase);
             this.Controls.Add(this.toolStripMainPanel);
             this.Controls.Add(this.panelFileBase);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnRecoveryPassword);
+            this.Controls.Add(this.btnResetUsers);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.ShowIcon = false;
-            this.Text = "Сброс учетных записей [1С:Предприятие 8.x] ";
+            this.Text = "Сброс учетных записей [1С:Предприятие 8.x]  (версия 2.0)";
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.MainForm_HelpButtonClicked);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelFileBase.ResumeLayout(false);
@@ -379,8 +379,8 @@
         #endregion
 
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnResetUsers;
+        private System.Windows.Forms.Button btnRecoveryPassword;
         private System.Windows.Forms.Panel panelFileBase;
         private System.Windows.Forms.TextBox textBoxDataBasePath;
         private System.Windows.Forms.Label label1;

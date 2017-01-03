@@ -12,16 +12,14 @@ C:\Users\user\Desktop\брос учетных записей\Сброс учет
 C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\obj\Release\Access Granted for 1CEnterprise.csproj.GenerateResource.Cache
 C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\obj\Release\Access Granted for 1CEnterprise.exe
 C:\Users\user\Desktop\брос учетных записей\Сброс учетных записей пользователей 1С Предприятие 8\Access Granted for 1CEnterprise\obj\Release\Access Granted for 1CEnterprise.pdb
-F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Access Granted for 1CEnterprise.exe.config
-F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\Access Granted for 1CEnterprise.exe
-F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\Access Granted for 1CEnterprise.pdb
-F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Access Granted for 1CEnterprise.exe
-F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Access Granted for 1CEnterprise.pdb
-F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Devart.Data.dll
-F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Devart.Data.Oracle.dll
 F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Mono.Security.dll
 F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\Npgsql.dll
 F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\Access Granted for 1CEnterprise.csproj.GenerateResource.Cache
 F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\DevelPlatform.OneCEUtils.AccessGranted.MainForm.resources
 F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\DevelPlatform.OneCEUtils.AccessGranted.About.resources
-F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\DevelPlatform.OneCEUtils.AccessGranted.Properties.Resources.resources
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\V8PasswordEjector.exe.config
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\DevelPlatform.OneCEUtils.V8PasswordEjector.Properties.Resources.resources
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\V8PasswordEjector.exe
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\bin\Release\V8PasswordEjector.pdb
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\V8PasswordEjector.exe
+F:\DevelPlatform\GIT\AccessGrantedFor1CEnterprise\Access Granted for 1CEnterprise\obj\Release\V8PasswordEjector.pdb
