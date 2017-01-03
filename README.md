@@ -1,4 +1,11 @@
-# AccessGrantedFor1CEnterprise
+# V8PasswordEjector
+
+## Отказ от ответственности
+Информация добавится позже...
+
+## Общие сведения
 Сброс учетных записей для 1С:Предприятия 8.x
-Подробная информация здесь: 
-http://develplatform.ru/OneC/Development/Applications/Reset1CAccounts
+Подробная информация [здесь](http://develplatform.ru/OneC/Development/Applications/Reset1CAccounts)
+
+## Принцип работы
+Информация добавится позже...
