@@ -43,12 +43,13 @@
             this.linkLabelEmail2 = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnSendFeedback = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // linkLabelEmail1
             // 
             this.linkLabelEmail1.AutoSize = true;
-            this.linkLabelEmail1.Location = new System.Drawing.Point(130, 26);
+            this.linkLabelEmail1.Location = new System.Drawing.Point(343, 26);
             this.linkLabelEmail1.Name = "linkLabelEmail1";
             this.linkLabelEmail1.Size = new System.Drawing.Size(105, 13);
             this.linkLabelEmail1.TabIndex = 0;
@@ -68,7 +69,7 @@
             // labelName1
             // 
             this.labelName1.AutoSize = true;
-            this.labelName1.Location = new System.Drawing.Point(152, 13);
+            this.labelName1.Location = new System.Drawing.Point(365, 13);
             this.labelName1.Name = "labelName1";
             this.labelName1.Size = new System.Drawing.Size(83, 13);
             this.labelName1.TabIndex = 2;
@@ -95,7 +96,7 @@
             // linkLabelBlog
             // 
             this.linkLabelBlog.AutoSize = true;
-            this.linkLabelBlog.Location = new System.Drawing.Point(151, 44);
+            this.linkLabelBlog.Location = new System.Drawing.Point(364, 44);
             this.linkLabelBlog.Name = "linkLabelBlog";
             this.linkLabelBlog.Size = new System.Drawing.Size(82, 13);
             this.linkLabelBlog.TabIndex = 5;
@@ -105,10 +106,10 @@
             // 
             // richTextBoxInfo
             // 
-            this.richTextBoxInfo.Location = new System.Drawing.Point(15, 182);
+            this.richTextBoxInfo.Location = new System.Drawing.Point(13, 161);
             this.richTextBoxInfo.Name = "richTextBoxInfo";
             this.richTextBoxInfo.ReadOnly = true;
-            this.richTextBoxInfo.Size = new System.Drawing.Size(220, 102);
+            this.richTextBoxInfo.Size = new System.Drawing.Size(433, 102);
             this.richTextBoxInfo.TabIndex = 7;
             this.richTextBoxInfo.Text = "Программа для сброса учетных записей в информационной базе 1С:Предприятия 8.x.  \n" +
     "\nАвтор не несет ответственности за использование приложения в корыстных целях.";
@@ -116,7 +117,7 @@
             // linkLabel3
             // 
             this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(12, 166);
+            this.linkLabel3.Location = new System.Drawing.Point(276, 266);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(170, 13);
             this.linkLabel3.TabIndex = 8;
@@ -127,7 +128,7 @@
             // linkLabel4
             // 
             this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Location = new System.Drawing.Point(12, 144);
+            this.linkLabel4.Location = new System.Drawing.Point(10, 266);
             this.linkLabel4.Name = "linkLabel4";
             this.linkLabel4.Size = new System.Drawing.Size(233, 13);
             this.linkLabel4.TabIndex = 9;
@@ -147,7 +148,7 @@
             // labelName2
             // 
             this.labelName2.AutoSize = true;
-            this.labelName2.Location = new System.Drawing.Point(155, 72);
+            this.labelName2.Location = new System.Drawing.Point(368, 72);
             this.labelName2.Name = "labelName2";
             this.labelName2.Size = new System.Drawing.Size(80, 13);
             this.labelName2.TabIndex = 11;
@@ -165,7 +166,7 @@
             // linkLabelEmail2
             // 
             this.linkLabelEmail2.AutoSize = true;
-            this.linkLabelEmail2.Location = new System.Drawing.Point(130, 85);
+            this.linkLabelEmail2.Location = new System.Drawing.Point(343, 85);
             this.linkLabelEmail2.Name = "linkLabelEmail2";
             this.linkLabelEmail2.Size = new System.Drawing.Size(103, 13);
             this.linkLabelEmail2.TabIndex = 13;
@@ -175,7 +176,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(193, 116);
+            this.label2.Location = new System.Drawing.Point(406, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 15;
@@ -190,11 +191,22 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Версия:";
             // 
+            // btnSendFeedback
+            // 
+            this.btnSendFeedback.Location = new System.Drawing.Point(15, 132);
+            this.btnSendFeedback.Name = "btnSendFeedback";
+            this.btnSendFeedback.Size = new System.Drawing.Size(433, 23);
+            this.btnSendFeedback.TabIndex = 16;
+            this.btnSendFeedback.Text = "Оставить отзыв";
+            this.btnSendFeedback.UseVisualStyleBackColor = true;
+            this.btnSendFeedback.Click += new System.EventHandler(this.btnSendFeedback_Click);
+            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(247, 296);
+            this.ClientSize = new System.Drawing.Size(460, 287);
+            this.Controls.Add(this.btnSendFeedback);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.linkLabelEmail2);
@@ -239,5 +251,6 @@
         private System.Windows.Forms.LinkLabel linkLabelEmail2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnSendFeedback;
     }
 }
