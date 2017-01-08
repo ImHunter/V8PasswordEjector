@@ -10,18 +10,33 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
 {
     public class PasswordEjector
     {
+        #region ServiceVars // Служебные переменные
+
+        private static string V8USERS_ORIGINAL_TABLE_NAME = "V8USERS";
+        private static string V8USERS_NEW_TABLE_NAME = "H8USERS";
+        private static string USERS_PARAMS_CONGIG_NAME = "users.usr";
+        private static Byte V8USERS_ORIGINAL_ASCII_BEGIN_BYTE = 118;
+        private static Byte V8USERS_ORIGINAL_UNICODE_BEGIN_BYTE = 86;
+        private static Byte V8USERS_NEW_ASCII_BEGIN_BYTE = 72;
+        private static Byte V8USERS_NEW_UNICODE_BEGIN_BYTE = 72;
+
+        private static Byte USERS_PARAMS_ORIGINAL_UNICODE_BEGIN_BYTE = 117;
+        private static Byte USERS_PARAMS_ORIGINAL_BEGIN_BYTE = 0;
+        private static Byte USERS_PARAMS_NEW_BEGIN_BYTE = 1;
+
+        #endregion
+
         #region ResetPasswordForFileInfobase // Сброс и восстановление учетных записей в файловой базе данных
 
         // Сброс учетных записей для файловой базы
         public static void ResetFileBaseUsers(string InfobasePath)
         {
-            Byte newByteTable = 72;
-            Byte newByteParam = 1;
+            Encoding tableV8UsersEncoding;
             long resTable = -1;
             long resParam = -1;
             try
             {
-                GetFileInfobaseTablesAdresses(out resTable, out resParam, InfobasePath);
+                GetFileInfobaseTablesAdresses(out resTable, out resParam, InfobasePath, V8USERS_ORIGINAL_TABLE_NAME, out tableV8UsersEncoding);
 
                 bool tableExist = !(resTable < 0);
                 bool paramExist = !(resParam < 0);
@@ -32,9 +47,13 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                     {
                         // Записываем новые значения байт в найденные позиции в файле
                         stream.Position = resTable;
-                        stream.WriteByte(newByteTable);
+                        if(tableV8UsersEncoding == Encoding.ASCII)
+                            stream.WriteByte(V8USERS_NEW_ASCII_BEGIN_BYTE);
+                        else
+                            stream.WriteByte(V8USERS_NEW_UNICODE_BEGIN_BYTE);
+
                         stream.Position = resParam;
-                        stream.WriteByte(newByteParam);
+                        stream.WriteByte(USERS_PARAMS_NEW_BEGIN_BYTE);
                     }
                 }
                 else
@@ -55,14 +74,12 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
         // Восстановление учетных записей для файловой базы
         public static void RecoveryFileBaseUsers(string InfobasePath)
         {
-
-            Byte newByteTable = 86;
-            Byte newByteParam = 0;
+            Encoding tableV8UsersEncoding;
             long resTable = -1;
             long resParam = -1;
             try
             {
-                GetFileInfobaseTablesAdresses(out resTable, out resParam, InfobasePath, "H8USERS");
+                GetFileInfobaseTablesAdresses(out resTable, out resParam, InfobasePath, V8USERS_NEW_TABLE_NAME, out tableV8UsersEncoding);
                 // Значения байт, на которые будут изменены значения в файле
                 // Вызов метода модификации файла
                 bool tableExist = !(resTable < 0);
@@ -74,9 +91,14 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                     {
                         // Записываем новые значения байт в найденные позиции в файле
                         stream.Position = resTable;
-                        stream.WriteByte(newByteTable);
+
+                        if (tableV8UsersEncoding == Encoding.ASCII)
+                            stream.WriteByte(V8USERS_ORIGINAL_ASCII_BEGIN_BYTE);
+                        else
+                            stream.WriteByte(V8USERS_ORIGINAL_UNICODE_BEGIN_BYTE);                        
+
                         stream.Position = resParam;
-                        stream.WriteByte(newByteParam);
+                        stream.WriteByte(USERS_PARAMS_ORIGINAL_BEGIN_BYTE);
                     }
                 }
                 else
@@ -137,10 +159,10 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
         }
 
 
-        private static void GetFileInfobaseTablesAdresses(out long resTable, out long resParam, string path, string V8USERS = "V8USERS")
+        private static void GetFileInfobaseTablesAdresses(out long resTable, out long resParam, string path, string V8USERS, out Encoding tableV8UsersEncoding)
         {
-            string userParams = "users.usr";
             int buflen = 8388608;
+            tableV8UsersEncoding = null;
 
             resTable = -1;
             resParam = -1;
@@ -152,6 +174,10 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                 using (FileStream fsSource = new FileStream(path,
                            FileMode.Open, FileAccess.Read))
                 {
+                    char firstUpperSymbolOfTableName = V8USERS.ToUpper()[0];
+                    char firstLowerSymbolOfTableName = V8USERS.ToLower()[0];
+                    string upperTableName = V8USERS.ToUpper();
+                    string lowerTableName = V8USERS.ToLower();
 
                     byte[] bytes = new byte[buflen];
                     long numBytesToRead = (long)fsSource.Length;
@@ -165,14 +191,21 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                         for (int i = 0; i < buflen; i++)
                         {
                             //Ищем V8Users 
-                            if (bytes[i] == Convert.ToByte(V8USERS[0]))
+                            if (bytes[i] == Convert.ToByte(firstUpperSymbolOfTableName)
+                                || bytes[i] == Convert.ToByte(firstLowerSymbolOfTableName))
                             {
                                 if (buflen - i > 13)
                                 {
-                                    if (Encoding.Unicode.GetString(bytes, i, 14).Contains(V8USERS))
+                                    if (Encoding.Unicode.GetString(bytes, i, 14).ToUpper().Contains(upperTableName))
                                     {
                                         resTable = numBytesRead + (long)i;
                                         sucV8 = true;
+                                        tableV8UsersEncoding = Encoding.Unicode;
+                                    } else if(Encoding.ASCII.GetString(bytes, i, 14).ToUpper().Contains(upperTableName))
+                                    {
+                                        resTable = numBytesRead + (long)i;
+                                        sucV8 = true;
+                                        tableV8UsersEncoding = Encoding.ASCII;
                                     }
                                 }
                                 else //если это конец буфера, проверяем вручную
@@ -202,11 +235,11 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
 
                             }
                             //Ищем users.usr
-                            if (bytes[i] == 117)
+                            if (bytes[i] == USERS_PARAMS_ORIGINAL_UNICODE_BEGIN_BYTE)
                             {
                                 if (buflen - i > 17)
                                 {
-                                    if (Encoding.Unicode.GetString(bytes, i, 18) == userParams)
+                                    if (Encoding.Unicode.GetString(bytes, i, 18) == USERS_PARAMS_CONGIG_NAME)
                                     {
                                         resParam = numBytesRead + (long)i - 3;
                                         sucUs = true;
