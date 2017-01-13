@@ -57,6 +57,7 @@
             this.panelConnStr = new System.Windows.Forms.Panel();
             this.labelConnStr = new System.Windows.Forms.Label();
             this.textBoxConnStr = new System.Windows.Forms.TextBox();
+            this.richTextBoxWarning = new System.Windows.Forms.RichTextBox();
             this.panelFileBase.SuspendLayout();
             this.toolStripMainPanel.SuspendLayout();
             this.panelServerBase.SuspendLayout();
@@ -70,7 +71,7 @@
             // 
             // btnResetUsers
             // 
-            this.btnResetUsers.Location = new System.Drawing.Point(216, 191);
+            this.btnResetUsers.Location = new System.Drawing.Point(217, 252);
             this.btnResetUsers.Name = "btnResetUsers";
             this.btnResetUsers.Size = new System.Drawing.Size(166, 23);
             this.btnResetUsers.TabIndex = 3;
@@ -80,7 +81,7 @@
             // 
             // btnRecoveryPassword
             // 
-            this.btnRecoveryPassword.Location = new System.Drawing.Point(12, 191);
+            this.btnRecoveryPassword.Location = new System.Drawing.Point(13, 252);
             this.btnRecoveryPassword.Name = "btnRecoveryPassword";
             this.btnRecoveryPassword.Size = new System.Drawing.Size(170, 23);
             this.btnRecoveryPassword.TabIndex = 4;
@@ -93,7 +94,7 @@
             this.panelFileBase.Controls.Add(this.textBoxDataBasePath);
             this.panelFileBase.Controls.Add(this.label1);
             this.panelFileBase.Controls.Add(this.button1);
-            this.panelFileBase.Location = new System.Drawing.Point(13, 28);
+            this.panelFileBase.Location = new System.Drawing.Point(14, 89);
             this.panelFileBase.Name = "panelFileBase";
             this.panelFileBase.Size = new System.Drawing.Size(369, 157);
             this.panelFileBase.TabIndex = 7;
@@ -182,7 +183,7 @@
             this.panelServerBase.Controls.Add(this.radioButtonFull);
             this.panelServerBase.Controls.Add(this.radioButtonSimle);
             this.panelServerBase.Controls.Add(this.panelDataBaseServerSimple);
-            this.panelServerBase.Location = new System.Drawing.Point(13, 28);
+            this.panelServerBase.Location = new System.Drawing.Point(14, 89);
             this.panelServerBase.Name = "panelServerBase";
             this.panelServerBase.Size = new System.Drawing.Size(369, 157);
             this.panelServerBase.TabIndex = 10;
@@ -319,7 +320,7 @@
             // 
             this.panelConnStr.Controls.Add(this.labelConnStr);
             this.panelConnStr.Controls.Add(this.textBoxConnStr);
-            this.panelConnStr.Location = new System.Drawing.Point(12, 76);
+            this.panelConnStr.Location = new System.Drawing.Point(13, 137);
             this.panelConnStr.Name = "panelConnStr";
             this.panelConnStr.Size = new System.Drawing.Size(370, 108);
             this.panelConnStr.TabIndex = 21;
@@ -341,11 +342,31 @@
             this.textBoxConnStr.Size = new System.Drawing.Size(366, 87);
             this.textBoxConnStr.TabIndex = 2;
             // 
+            // richTextBoxWarning
+            // 
+            this.richTextBoxWarning.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.richTextBoxWarning.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxWarning.Cursor = System.Windows.Forms.Cursors.No;
+            this.richTextBoxWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBoxWarning.ForeColor = System.Drawing.Color.DarkRed;
+            this.richTextBoxWarning.Location = new System.Drawing.Point(14, 29);
+            this.richTextBoxWarning.Name = "richTextBoxWarning";
+            this.richTextBoxWarning.ReadOnly = true;
+            this.richTextBoxWarning.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.richTextBoxWarning.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBoxWarning.ShortcutsEnabled = false;
+            this.richTextBoxWarning.Size = new System.Drawing.Size(368, 54);
+            this.richTextBoxWarning.TabIndex = 22;
+            this.richTextBoxWarning.TabStop = false;
+            this.richTextBoxWarning.Text = "ВНИМАНИЕ!!!\nДанная программа не является руководством к действию!\nАвтор не несет " +
+    "ответственности за последствия ее использования в корыстных целях!!!";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 226);
+            this.ClientSize = new System.Drawing.Size(394, 285);
+            this.Controls.Add(this.richTextBoxWarning);
             this.Controls.Add(this.panelConnStr);
             this.Controls.Add(this.panelServerBase);
             this.Controls.Add(this.toolStripMainPanel);
@@ -406,6 +427,7 @@
         private System.Windows.Forms.Label labelConnStr;
         private System.Windows.Forms.TextBox textBoxConnStr;
         private System.Windows.Forms.ToolStripButton toolStripButtonHelp;
+        private System.Windows.Forms.RichTextBox richTextBoxWarning;
     }
 }
 

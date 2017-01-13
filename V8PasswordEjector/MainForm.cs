@@ -18,6 +18,9 @@ namespace DevelPlatform.OneCEUtils.AccessGranted
             InitializeComponent();
 
             SetVisiblePanel(ThisFileBase);
+
+            richTextBoxWarning.SelectAll();
+            richTextBoxWarning.SelectionAlignment = HorizontalAlignment.Center;
         }
 
         private void MainForm_Load(object sender, EventArgs e)

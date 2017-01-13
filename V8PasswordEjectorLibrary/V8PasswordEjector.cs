@@ -28,7 +28,6 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
 
         #region ResetPasswordForFileInfobase // Сброс и восстановление учетных записей в файловой базе данных
 
-        // Сброс учетных записей для файловой базы
         public static void ResetFileBaseUsers(string InfobasePath)
         {
             Encoding tableV8UsersEncoding;
@@ -42,10 +41,8 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                 bool paramExist = !(resParam < 0);
                 if (tableExist && paramExist)
                 {
-                    // Используя класс "FileStream" открываем файл для записи
                     using (var stream = new FileStream(InfobasePath, FileMode.Open, FileAccess.ReadWrite))
                     {
-                        // Записываем новые значения байт в найденные позиции в файле
                         stream.Position = resTable;
                         if(tableV8UsersEncoding == Encoding.ASCII)
                             stream.WriteByte(V8USERS_NEW_ASCII_BEGIN_BYTE);
@@ -71,7 +68,6 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
             }
         }
 
-        // Восстановление учетных записей для файловой базы
         public static void RecoveryFileBaseUsers(string InfobasePath)
         {
             Encoding tableV8UsersEncoding;
@@ -80,16 +76,13 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
             try
             {
                 GetFileInfobaseTablesAdresses(out resTable, out resParam, InfobasePath, V8USERS_NEW_TABLE_NAME, out tableV8UsersEncoding);
-                // Значения байт, на которые будут изменены значения в файле
-                // Вызов метода модификации файла
+
                 bool tableExist = !(resTable < 0);
                 bool paramExist = !(resParam < 0);
                 if (tableExist && paramExist)
                 {
-                    // Используя класс "FileStream" открываем файл для записи
                     using (var stream = new FileStream(InfobasePath, FileMode.Open, FileAccess.ReadWrite))
                     {
-                        // Записываем новые значения байт в найденные позиции в файле
                         stream.Position = resTable;
 
                         if (tableV8UsersEncoding == Encoding.ASCII)
@@ -127,20 +120,15 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
         {
             try
             {
-                // Получаем массив байт файла информационной базы "1Cv8.1CD"
                 Byte[] searchIn = File.ReadAllBytes(PathDataBase);
-                // Ищем заданные последовательности байт
                 int resTable = PasswordReseterHelper.ByteSearch(searchIn, searchTable, 0);
                 int resParam = PasswordReseterHelper.ByteSearch(searchIn, searchParam, 0);
-                // Определяем флаги о результатах поиска
                 bool tableExist = !(resTable < 0);
                 bool paramExist = !(resParam < 0);
                 if (tableExist && paramExist)
                 {
-                    // Используя класс "FileStream" открываем файл для записи
                     using (var stream = new FileStream(PathDataBase, FileMode.Open, FileAccess.ReadWrite))
                     {
-                        // Записываем новые значения байт в найденные позиции в файле
                         stream.Position = resTable;
                         stream.WriteByte(newByteTable);
                         stream.Position = resParam;
@@ -169,7 +157,6 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
             bool sucV8 = false;
             bool sucUs = false;
             long n = 0;
-            //  try
             {
                 using (FileStream fsSource = new FileStream(path,
                            FileMode.Open, FileAccess.Read))
@@ -187,10 +174,9 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                         if ((sucV8 == true) & (sucUs == true)) break;
 
                         n = (long)fsSource.Read(bytes, 0, buflen);
-                        //начинаем искать
+
                         for (int i = 0; i < buflen; i++)
-                        {
-                            //Ищем V8Users 
+                        { 
                             if (bytes[i] == Convert.ToByte(firstUpperSymbolOfTableName)
                                 || bytes[i] == Convert.ToByte(firstLowerSymbolOfTableName))
                             {
@@ -208,12 +194,12 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                         tableV8UsersEncoding = Encoding.ASCII;
                                     }
                                 }
-                                else //если это конец буфера, проверяем вручную
+                                else
                                 {
                                     long SP = numBytesRead;
                                     byte[] temp = new byte[14];
                                     int j = 0;
-                                    for (int k = i; k < buflen; k++)    //Копируем из того, что удалось считать
+                                    for (int k = i; k < buflen; k++)
                                     {
                                         temp[j] = bytes[k];
                                         j++;
@@ -221,7 +207,7 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                     int max = 14 - j;
                                     for (int k = 0; k < max; k++)
                                     {
-                                        temp[j] = (byte)fsSource.ReadByte();    //добавляем остальное
+                                        temp[j] = (byte)fsSource.ReadByte();
                                         j++;
                                         numBytesRead += 1;
                                         numBytesToRead -= 1;
@@ -234,7 +220,7 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                 }
 
                             }
-                            //Ищем users.usr
+
                             if (bytes[i] == USERS_PARAMS_ORIGINAL_UNICODE_BEGIN_BYTE)
                             {
                                 if (buflen - i > 17)
@@ -245,12 +231,12 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                         sucUs = true;
                                     }
                                 }
-                                else //если это конец буфера, проверяем вручную
+                                else 
                                 {
                                     long SP = numBytesRead;
                                     byte[] temp = new byte[18];
                                     int j = 0;
-                                    for (int k = i; k < buflen; k++)    //Копируем из того, что удалось считать
+                                    for (int k = i; k < buflen; k++) 
                                     {
                                         temp[j] = bytes[k];
                                         j++;
@@ -258,7 +244,7 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                     int max = 18 - j;
                                     for (int k = 0; k < max; k++)
                                     {
-                                        temp[j] = (byte)fsSource.ReadByte();    //добавляем остальное
+                                        temp[j] = (byte)fsSource.ReadByte(); 
                                         j++;
                                         numBytesRead += 1;
                                         numBytesToRead -= 1;
@@ -271,7 +257,7 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                 }
                             }
                         }
-                        // Break when the end of the file is reached.
+
                         if (n == 0)
                             break;
 
@@ -286,25 +272,20 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
 
         #region ResetPasswordForServerInfobase // Сброс учетных записей в серверной базе данных
 
-        // Сбрасываем учетный записи информационной базы для серверной базы
         public static void RecoveryServerInfobaseUsers(string connectionString, SupportedDBMS dbms = SupportedDBMS.MSSQL)
         {
-            // MSSQL
             if (dbms == SupportedDBMS.MSSQL)
             {
                 RecoveryServerBaseUsersForMSSQLSERVER(connectionString);
             }
-            // PostgreSQL
             else if (dbms == SupportedDBMS.PostgreSQL)
             {
                 RecoveryServerBaseUsersForPOSTGRESQL(connectionString);
             }
-            // IBM DB2
             else if (dbms == SupportedDBMS.IBMDB2)
             {
                 RecoveryServerBaseUsersForIBMDB2(connectionString);
             }
-            // Oracle Database
             else if (dbms == SupportedDBMS.OracleDatabase)
             {
                 throw new Exception("Поддержка \"OracleDatabase\" временно отключена!");
@@ -316,25 +297,20 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
             }
         }
 
-        // Сбрасываем учетный записи информационной базы для серверной базы
         public static void ResetServerInfobaseUsers(string connectionString, SupportedDBMS dbms = SupportedDBMS.MSSQL)
         {
-            // MSSQL
             if (dbms == SupportedDBMS.MSSQL)
             {
                 ResetServerBaseUsersForMSSQLSERVER(connectionString);
             }
-            // PostgreSQL
             else if (dbms == SupportedDBMS.PostgreSQL)
             {
                 ResetServerBaseUsersForPOSTGRESQL(connectionString);
             }
-            // IBM DB2
             else if (dbms == SupportedDBMS.IBMDB2)
             {
                 ResetServerBaseUsersForIBMDB2(connectionString);
             }
-            // Oracle Database
             else if (dbms == SupportedDBMS.OracleDatabase)
             {
                 throw new Exception("Поддержка \"OracleDatabase\" временно отключена!");
@@ -342,7 +318,6 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
             }
         }
 
-        // Сброс и восстановление учетных записей для MSSQLSERVER
         private static void ResetServerBaseUsersForMSSQLSERVER(string connStr)
         {
             try
@@ -356,15 +331,12 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                         {
                             using (var cmd = conn.CreateCommand())
                             {
-                                // Переименовываем таблицу, чтобы платформа не нашла список пользователей
                                 cmd.CommandText = "sp_rename 'v8users', 'h8users'";
                                 cmd.Transaction = transaction;
                                 cmd.ExecuteNonQuery();
                             }
                             using (var cmd = conn.CreateCommand())
                             {
-                                // Переименовываем значение "FileName" для записи с параметрами учетных записей
-                                // таблице "Params"
                                 cmd.CommandText = "UPDATE Params Set FileName = 'husers.usr' Where FileName = 'users.usr'";
                                 cmd.Transaction = transaction;
                                 cmd.ExecuteNonQuery();
@@ -397,7 +369,7 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                     {
                         try
                         {
-                            bool TableExist = false; // Определяем наличие таблицы "v8users" в базе данных
+                            bool TableExist = false;
                             using (var cmdDelSelect = conn.CreateCommand())
                             {
                                 cmdDelSelect.CommandText = "select * from sysobjects Where name = 'v8users'";
@@ -409,8 +381,8 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                 }
                                 reader.Close();
                             }
-                            if (TableExist) // Если таблица "v8users" существует - удаляем ее для
-                            {               // восстановления старой таблицы
+                            if (TableExist) 
+                            {               
                                 using (var cmdDel = conn.CreateCommand())
                                 {
                                     cmdDel.CommandText = "DROP TABLE v8users";
@@ -419,19 +391,19 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                 }
                             }
                             using (var cmdDel = conn.CreateCommand())
-                            {   // Удаляем параметры пользователей из таблицы "Params"
+                            {   
                                 cmdDel.CommandText = "DELETE FROM Params WHERE filename='users.usr'";
                                 cmdDel.Transaction = transaction;
                                 cmdDel.ExecuteNonQuery();
                             }
                             using (var cmd = conn.CreateCommand())
-                            {   // Переименовываем сохраненную ранее таблицу "h8users" в "v8users"
+                            {   
                                 cmd.CommandText = "sp_rename 'h8users', 'v8users'";
                                 cmd.Transaction = transaction;
                                 cmd.ExecuteNonQuery();
                             }
                             using (var cmd = conn.CreateCommand())
-                            {   // Возвращаем исходное значение "FileName" для записи параметров пользователей
+                            {  
                                 cmd.CommandText = "UPDATE Params Set FileName = 'users.usr' Where FileName = 'husers.usr'";
                                 cmd.Transaction = transaction;
                                 cmd.ExecuteNonQuery();
@@ -454,7 +426,6 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
             }
         }
 
-        // Сброс и восстановление учетных записей для POSTGRESQL
         private static void ResetServerBaseUsersForPOSTGRESQL(string connStr)
         {
             try
@@ -466,7 +437,6 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                     {
                         try
                         {
-                            // Переименовываем индексы таблицы
                             using (var cmdGetTabIndex = conn.CreateCommand())
                             {
                                 List<string> listIndex = new List<string>();
@@ -568,9 +538,6 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                 cmdDel.ExecuteNonQuery();
                             }
 
-                            // Восстанавливаем учетные записи
-
-                            // Переименовываем индексы таблицы
                             using (var cmdGetTabIndex = conn.CreateCommand())
                             {
                                 List<string> listIndex = new List<string>();
@@ -633,7 +600,6 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
             }
         }
 
-        // Сброс и восстановление учетных записей для IBMDB2
         private static void ResetServerBaseUsersForIBMDB2(string connStr)
         {
             try
@@ -645,9 +611,8 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                     {
                         try
                         {
-                            // Получаем имя SQL-таблицы с учетными записями пользователей
-                            string TabUserName = "";              // Исходное имя таблицы
-                            string newTabUserName = "";           // Новое имя таблицы
+                            string TabUserName = "";              
+                            string newTabUserName = "";          
                             using (var cmdGetTabName = conn.CreateCommand())
                             {
                                 cmdGetTabName.CommandText = "SELECT SYNONYM_NAME, TABLE_NAME FROM SYSPUBLIC.\"ALL_SYNONYMS\"" +
@@ -663,7 +628,6 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                             }
                             if (!(TabUserName == ""))
                             {
-                                // Переименовываем индексы таблицы
                                 using (var cmdGetTabIndex = conn.CreateCommand())
                                 {
                                     cmdGetTabIndex.CommandText = "SELECT INDEX_NAME FROM SYSPUBLIC.\"USER_INDEXES\" Where TABLE_NAME = '" + TabUserName + "'" +
@@ -682,21 +646,18 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                     }
                                     reader.Close();
                                 }
-                                // Переименовываем таблицу с учетными записями
                                 using (var renameUserTable = conn.CreateCommand())
                                 {
                                     renameUserTable.CommandText = "RENAME " + TabUserName + " TO " + newTabUserName + ";";
                                     renameUserTable.Transaction = transaction;
                                     renameUserTable.ExecuteNonQuery();
                                 }
-                                // Удаляем старый алиас "V8USERS" и создаем новый "HV8USERS" для переименованной ранее таблицы
                                 using (var delUserAlias = conn.CreateCommand())
                                 {
                                     delUserAlias.CommandText = "DROP ALIAS V8USERS; CREATE ALIAS HV8USERS FOR " + newTabUserName;
                                     delUserAlias.Transaction = transaction;
                                     delUserAlias.ExecuteNonQuery();
                                 }
-                                // Изменяем запись параметров пользователей в таблице "Params", чтобы она не учитывалась при запуске
                                 using (var renameUserParam = conn.CreateCommand())
                                 {
                                     renameUserParam.CommandText = "UPDATE PARAMS SET FILENAME = 'husers.usr' WHERE FILENAME = 'users.usr'";
@@ -737,7 +698,6 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                     {
                         try
                         {
-                            // Получаем имя SQL-таблицы с учетными записями пользователей, сохраненной ранее
                             string recTabUserName = "";
                             using (var cmdGetTabName = conn.CreateCommand())
                             {
@@ -751,10 +711,8 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                 }
                                 reader.Close();
                             }
-                            // Удаляем данные о созданных учетных записях, если имеется таблица с инф. для восстановления
                             if (!(recTabUserName == ""))
                             {
-                                // Получаем данные по таблицам и индексам, которые необходимо удалить перед восстановлением пользователей
                                 string TabUserName = "";
                                 using (var cmdGetTabName = conn.CreateCommand())
                                 {
@@ -770,7 +728,6 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                 }
                                 if (!(TabUserName == ""))
                                 {
-                                    // Удаляем индексы найденной таблицы
                                     using (var cmdGetTabIndex = conn.CreateCommand())
                                     {
                                         cmdGetTabIndex.CommandText = "SELECT INDEX_NAME FROM SYSPUBLIC.\"USER_INDEXES\" Where TABLE_NAME = '" + TabUserName + "'" +
@@ -789,7 +746,6 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                         }
                                         reader.Close();
                                     }
-                                    // Удаляем таблицу и ее алиас, а также удаляем запись с параметрами уч. записей
                                     using (var delUserTableParams = conn.CreateCommand())
                                     {
                                         delUserTableParams.CommandText = "DROP TABLE " + TabUserName + ";" +
@@ -800,9 +756,6 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                     }
                                 }
 
-                                // Восстанавливаем учетные записи
-
-                                // Переименовываем индексы таблицы
                                 using (var cmdGetTabIndex = conn.CreateCommand())
                                 {
                                     cmdGetTabIndex.CommandText = "SELECT INDEX_NAME FROM SYSPUBLIC.\"USER_INDEXES\" Where TABLE_NAME = '" + recTabUserName + "'" +
@@ -821,14 +774,12 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                     }
                                     reader.Close();
                                 }
-                                // Переименовываем таблицы с учетными записями
                                 using (var renameUserTable = conn.CreateCommand())
                                 {
                                     renameUserTable.CommandText = "RENAME " + recTabUserName + " TO " + recTabUserName.Substring(1, recTabUserName.Length - 1) + ";";
                                     renameUserTable.Transaction = transaction;
                                     renameUserTable.ExecuteNonQuery();
                                 }
-                                // Удаляем старый алиас "HV8USERS" и создаем новый "V8USERS" для восстановления уч. записей
                                 using (var delUserAlias = conn.CreateCommand())
                                 {
                                     delUserAlias.CommandText = "DROP ALIAS HV8USERS; CREATE ALIAS V8USERS FOR " + recTabUserName.Substring(1, recTabUserName.Length - 1);
@@ -860,7 +811,6 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
             }
         }
 
-        // Сброс и восстановление учетных записей для ORACLEDATABASE
         private static void ResetServerBaseUsersForOracleDatabase(string connStr)
         {
             //try
@@ -1022,23 +972,18 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
 
         private class PasswordReseterHelper
         {
-            // Поиск массива байт в другом массиве байт
             public static int ByteSearch(byte[] searchIn, byte[] searchBytes, int start = 0)
             {
                 int found = -1;
                 bool matched = false;
-                //only look at this if we have a populated search array and search bytes with a sensible start
                 if (searchIn.Length > 0 && searchBytes.Length > 0 && start <= (searchIn.Length - searchBytes.Length) && searchIn.Length >= searchBytes.Length)
                 {
-                    //iterate through the array to be searched
                     for (int i = start; i <= searchIn.Length - searchBytes.Length; i++)
                     {
-                        //if the start bytes match we will start comparing all other bytes
                         if (searchIn[i] == searchBytes[0])
                         {
                             if (searchIn.Length > 1)
                             {
-                                //multiple bytes to be searched we have to compare byte by byte
                                 matched = true;
                                 for (int y = 1; y <= searchBytes.Length - 1; y++)
                                 {
@@ -1048,28 +993,23 @@ namespace DevelPlatform.OneCEUtils.V8PasswordEjector
                                         break;
                                     }
                                 }
-                                //everything matched up
                                 if (matched)
                                 {
                                     found = i;
                                     break;
                                 }
-
                             }
                             else
                             {
-                                //search byte is only one bit nothing else to do
                                 found = i;
-                                break; //stop the loop
+                                break;
                             }
 
                         }
                     }
-
                 }
                 return found;
             }
-
         }
 
         #endregion
