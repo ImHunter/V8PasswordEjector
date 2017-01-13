@@ -35,5 +35,11 @@ namespace DevelPlatform.OneCEUtils.AccessGranted
         {
             Process.Start("https://github.com/YPermitin/V8PasswordEjector");
         }
+
+        private void About_Load(object sender, EventArgs e)
+        {
+            richTextBoxInfo.SelectAll();
+            richTextBoxInfo.SelectionAlignment = HorizontalAlignment.Center;
+        }
     }
 }
