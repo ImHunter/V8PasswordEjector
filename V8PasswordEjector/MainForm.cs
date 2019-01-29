@@ -8,7 +8,6 @@ namespace DevelPlatform.OneCEUtils.AccessGranted
 {
     public partial class MainForm : Form
     {
-        // Флаг "Это файловая база"
         private bool ThisFileBase = true;
 
         #region FormAndElements
@@ -27,6 +26,8 @@ namespace DevelPlatform.OneCEUtils.AccessGranted
         {
             comboBoxTypeDBMS.SelectedIndex = 0;
             SetVisibleDataBaseServerSetting();
+
+            V8PlatformDetector.GetInstalledPlatforms();
         }
 
         private void MainForm_HelpButtonClicked(object sender, EventArgs e)
@@ -111,15 +112,7 @@ namespace DevelPlatform.OneCEUtils.AccessGranted
 
             if (ThisFileBase)
             {
-                try
-                {
-                    PasswordEjector.RecoveryFileBaseUsers(textBoxDataBasePath.Text);
-                    MessageBox.Show("Операция успешно выполнена!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Произошла ошибка:\n" + ex.Message);
-                }
+                MessageBox.Show("Восстановление недоступно для файловых баз!");
             }
             else
             {
@@ -158,6 +151,8 @@ namespace DevelPlatform.OneCEUtils.AccessGranted
                 toolStripServerBase.BackColor = Color.FromName("ScrollBar");
                 toolStripFileBase.BackColor = Color.FromName("Control");
             }
+
+            btnRecoveryPassword.Visible = ThisFileBase;
         }
 
         // Устанавливаем видимость панелей настроек подключения к СУБД
@@ -215,10 +210,6 @@ namespace DevelPlatform.OneCEUtils.AccessGranted
                 selectedDBMS = PasswordEjector.SupportedDBMS.MSSQL;
             else if (comboBoxTypeDBMS.SelectedIndex == 1)
                 selectedDBMS = PasswordEjector.SupportedDBMS.PostgreSQL;
-            else if (comboBoxTypeDBMS.SelectedIndex == 2)
-                selectedDBMS = PasswordEjector.SupportedDBMS.IBMDB2;
-            else if (comboBoxTypeDBMS.SelectedIndex == 3)
-                selectedDBMS = PasswordEjector.SupportedDBMS.OracleDatabase;
             else
                 selectedDBMS = PasswordEjector.SupportedDBMS.MSSQL;
 
@@ -250,37 +241,7 @@ namespace DevelPlatform.OneCEUtils.AccessGranted
                           ";Port=5432;Database=" + textBoxDataBaseName.Text +
                           ";User Id=" + textBoxDataBaseUser.Text +
                           ";Password=" + textBoxDataBaseUserPassword.Text;
-            }
-            // Формируем строку подключения для IBMDB2
-            else if (comboBoxTypeDBMS.SelectedIndex == 2)
-            {
-                connStr = "Provider=IBMDADB2;Database=" + textBoxDataBaseName.Text +
-                          ";Hostname=" + textBoxDataBaseServer.Text +
-                          ";Protocol=TCPIP;Port=50000;Uid=" + textBoxDataBaseUser.Text +
-                          ";Pwd=" + textBoxDataBaseUserPassword.Text + ";";
-            }
-            // Формируем строку подключения для Oracle Database
-            else if (comboBoxTypeDBMS.SelectedIndex == 3)
-            {
-                string server = "";
-                string service = "";
-                string buf = textBoxDataBaseServer.Text.Substring(2, textBoxDataBaseServer.Text.Length - 2);
-
-                try
-                {
-                    int div = buf.IndexOf("/");
-                    server = buf.Substring(0, div);
-                    service = buf.Substring((div + 1), buf.Length - (div + 1));
-                }
-                catch
-                {
-                    server = "---";
-                    service = "---";
-                }
-
-                connStr = "User Id=" + textBoxDataBaseUser.Text + ";Password=" + textBoxDataBaseUserPassword.Text +
-                           ";Server=" + server + ";Unicode=True;Direct=True;Service Name=" + service + ";";
-            }
+            }            
 
             return connStr;
         }

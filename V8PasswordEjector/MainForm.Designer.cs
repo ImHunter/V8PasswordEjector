@@ -203,9 +203,7 @@
             this.comboBoxTypeDBMS.FormattingEnabled = true;
             this.comboBoxTypeDBMS.Items.AddRange(new object[] {
             "Microsoft SQL Server",
-            "PostgreSQL",
-            "IBM DB2",
-            "Oracle Database"});
+            "PostgreSQL"});
             this.comboBoxTypeDBMS.Location = new System.Drawing.Point(203, 25);
             this.comboBoxTypeDBMS.Name = "comboBoxTypeDBMS";
             this.comboBoxTypeDBMS.Size = new System.Drawing.Size(161, 21);
